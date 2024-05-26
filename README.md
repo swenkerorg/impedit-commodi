@@ -1,3 +1,118 @@
-The algorithm continuously evaluates and scores open source software projects in supported package managers based on their impact and value to the OSS ecosystem.
+# @swenkerorg/impedit-commodi
 
-Simple support tea in reguide template can increase for an open source software project with an increasing number of dependents
+<p>
+  <a href="https://www.npmjs.com/package/@swenkerorg/impedit-commodi" target="_blank">
+    <img src="https://img.shields.io/npm/v/@swenkerorg/impedit-commodi.svg" alt="npm version" />
+  </a>
+
+  <a href="https://www.npmjs.com/package/@swenkerorg/impedit-commodi">
+    <img src="https://img.shields.io/npm/dm/@swenkerorg/impedit-commodi.svg" alt="npm downloads" />
+  </a>
+
+  <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+
+  <a href="https://www.npmjs.com/package/git-commit-msg-linter" target="_blank">
+    <img alt="linter by git commit msg linter" src="https://img.shields.io/badge/git-commit%20msg%20linter-blue" />
+  </a>
+</p>
+
+> An eslint plugin to enforce method or function name conforms to conventions.
+
+## Installation
+
+You'll first need to install [ESLint](http://eslint.org):
+
+```sh
+npm i eslint --save-dev
+```
+
+Next, install `@swenkerorg/impedit-commodi`:
+
+```sh
+npm install @swenkerorg/impedit-commodi --save-dev
+```
+
+## Usage
+
+Add `function-name` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+
+```json
+{
+  "plugins": [
+    "function-name"
+  ],
+  "rules": {
+    "function-name/starts-with-verb": "error"
+  }
+}
+```
+
+## Supported Rules
+
+### function-name/starts-with-verb
+
+Function is always do something, so it should start with a verb and to avoid confusion with variables.
+
+👎 Examples of **incorrect** code for this rule:
+
+```js
+// "@ali/paytm/function-name-starts-with-verb": ["error"]
+
+function cat(fish) {}
+function dog(distance) {}
+```
+
+👍 Examples of **correct** code for this rule:
+
+```js
+// "@ali/paytm/function-name-starts-with-verb": ["error"]
+
+function feedCat(fish) {}
+function walkDog(distance) {}
+```
+
+#### options
+
+```typescript
+interface IOptions {
+  whitelist: string[];
+  blacklist: string[];
+}
+```
+
+.eslintrc.js
+
+```javascript
+{
+  "rules": {
+    "function-name/starts-with-verb": ["error", {
+      "whitelist": ["success"],
+      "blacklist": ["init"]
+    }]
+  }
+}
+```
+
+👎 Examples of **incorrect** code for this rule:
+
+```js
+// ..."blacklist": ["init"]...
+const foo = {
+  init() {},
+}
+```
+
+👍 Examples of **correct** code for this rule:
+
+```js
+// ..."whitelist": ["success"]...
+const foo = {
+  success() {},
+}
+```
+
+## Develop
+
+### npm
+
+yarn → bun
